@@ -31,8 +31,8 @@
                 <input name="productName" type="text" class="product__text">
             </div>
 
-            <div class="unit__container container__organizer">
-                <h2 class="unit__name">Quantity:</h2>
+            <div class="quantity__container container__organizer">
+                <h2 class="quantity__name">Quantity:</h2>
                 <select name="quantity" id="quantity">
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -41,6 +41,16 @@
                     <option value="5">5</option>
                     <option value="6">6</option>
                 </select>
+            </div>
+
+            <div class="unit__container">
+                <h2 class="unit__name">Unit Price:</h2>
+                <input type="text" name="price" class="unit__text">
+            </div>
+
+            <div class="name__container container__organizer">
+                <h2 class="name__name">Name:</h2>
+                <input type="text" name="name" class="name__text">
             </div>
 
             <div class="shipping__container container__organizer">
@@ -60,12 +70,12 @@
 
             <div class="credit__number__container container__organizer">
                 <h2 class="credit__number__name">Credit Card Number:</h2>
-                <input type="text" class="credit__number__text">
+                <input type="password" class="credit__number__text" name="creditNumber">
             </div>
 
             <div class="repeat__credit__number__container container__organizer">
                 <h2 class="repeat__credit__number__name">Credit Card Number:</h2>
-                <input type="text" class="repeat__credit__number__text" name="repeatCredit">
+                <input type="password" class="repeat__credit__number__text" name="repeatCredit">
             </div>
 
             <hr class="divider">
