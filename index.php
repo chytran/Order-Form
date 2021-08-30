@@ -17,22 +17,24 @@
     <section class="main__container">
         <img src="img/background.jpg" alt="" class="bg__cover">
         <div class="container">
-            <?php
-                if (isset($_GET["error"])) {
-                    if ($_GET["error"] == "invalidPrice") {
-                        echo "<p class='error'>Must Enter a valid price.</p>";
-                    }
-                    else if ($_GET["error"]  == "noMatchCredit") {
-                        echo "<p class='error'>Credit card numbers do not match.</p>";
-                    }
-                }
-            ?>
-            <form action="POST" action="display.php" class="form">
+            <form method="post" action="display.php" class="form">
                 <h1 class="order__title">Order Form</h1>
+
+                <!-- Error displays -->
+                <?php
+                    if (isset($_GET["error"])) {
+                        if ($_GET["error"] == "invalidPrice") {
+                            echo "<p class='error'>Must Enter a valid price.</p>";
+                        }
+                        else if ($_GET["error"]  == "noMatchCredit") {
+                            echo "<p class='error'>Credit card numbers do not match.</p>";
+                        }
+                    }
+                ?>
 
                 <div class="product__container container__organizer">
                     <h2 class="product__name">Product:</h2>
-                    <input name="productName" type="text" class="product__text">
+                    <input name="name" type="text" class="product__text">
                 </div>
 
                 <div class="quantity__container container__organizer">
@@ -45,7 +47,7 @@
                         <option value="5">5</option>
                         <option value="6">6</option>
                     </select>
-                </div>
+                </div> 
 
                 <div class="unit__container container__organizer">
                     <h2 class="unit__name">Unit Price:</h2>
@@ -54,7 +56,7 @@
 
                 <div class="name__container container__organizer">
                     <h2 class="name__name">Name:</h2>
-                    <input type="text" name="name" class="name__text">
+                    <input type="text" name="naming" class="name__text">
                 </div>
 
                 <div class="shipping__container container__organizer">
@@ -65,10 +67,25 @@
                 <div class="credit__container container__organizer">
                     <h2 class="credit__name">Credit Card:</h2>
                     <fieldset id="credit1">
-                        <input type="radio" value="value1" name="credit" class="credit__option">
-                        <input type="radio" value="value2" name="credit" class="credit__option">
-                        <input type="radio" value="value3" name="credit" class="credit__option">
-                        <input type="radio" value="value4" name="credit" class="credit__option">
+                        <div class="radio__container">
+                            <input type="radio" value="Visa" name="credit" id="visa" class="credit__option">
+                            <label for="visa" class="labels"> Visa</label>
+                        </div>
+                        
+                        <div class="radio__container">
+                            <input type="radio" value="Master Card" name="credit" id="masterCard" class="credit__option">
+                            <label for="masterCard" class="labels">Master Card</label>
+                        </div>
+
+                        <div class="radio__container">
+                            <input type="radio" value="American Express" name="credit" id="americanExpress" class="credit__option">
+                            <label for="americanExpress" class="labels">American Express</label>
+                        </div>
+
+                        <div class="radio__container">
+                            <input type="radio" value="Discover" name="credit" id="discover" class="credit__option">
+                            <label for="discover" class="labels">Discover</label>
+                        </div>
                     </fieldset>
                 </div>
 
@@ -84,7 +101,7 @@
 
                 <hr class="divider">
 
-                <button class="button" method="POST" name="submit">Submit Order</button>
+                <input class="button" type="submit">
             </form>
         </div>
     </section>

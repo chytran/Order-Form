@@ -21,3 +21,5 @@ function wrongPrice($price) {
     }
     return $result;
 }
+
+?>

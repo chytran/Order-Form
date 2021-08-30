@@ -5,6 +5,11 @@
     font-family: "Poppins", sans-serif;
 }
 
+.error {
+    color: red;
+    font-size: 2rem;
+}
+
 section {
     position: relative;
     height: 100vh;
@@ -41,7 +46,7 @@ section {
     height: 50vh;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     flex-direction: column;
     z-index: 100;
     // color: #FFF;
@@ -52,14 +57,41 @@ section {
 .container__organizer {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     flex-direction: row;
-    margin-left: 20%;
+    row-gap: 1rem;
+    column-gap: 1rem;
+    width: 80%;
 }
 
 .order__title {
     margin-left: 20%;
     padding-bottom: 2rem;
+}
+
+// Credit Card Type
+#credit1 {
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    flex-direction: column;
+}
+
+.radio__container {
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+    flex-direction: row;
+    column-gap: 0.5rem;
+}
+
+.labels {
+    margin-top: -0.5rem;
+}
+
+.repeat__credit__number__text {
+    justify-self: flex-end;
 }
 
 .divider {
