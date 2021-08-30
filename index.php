@@ -47,7 +47,7 @@
                     </select>
                 </div>
 
-                <div class="unit__container">
+                <div class="unit__container container__organizer">
                     <h2 class="unit__name">Unit Price:</h2>
                     <input type="text" name="price" class="unit__text">
                 </div>
