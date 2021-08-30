@@ -8,16 +8,17 @@
     $creditNumber = $_POST["creditNumber"];
     $creditNumberRepeat = $_POST["repeatCredit"];
 
-    // require_once 'includes/functions.inc.php';
+    require_once 'includes/functions.inc.php';
 
     // if (wrongPrice($price)) {
     //     header("location: index.php?error=invalidPrice");
     //     exit();
     // }
-    // else if (noMatchCredit($creditNumber, $creditNumberRepeat)) {
-    //     header("location: index.php?error=noMatchCredit");
-    //     exit();
-    // }
+    
+    if (noMatchCredit($creditNumber, $creditNumberRepeat)) {
+        header("location: index.php?error=noMatchCredit");
+        exit();
+    }
 ?>
 
 <!--================== HTML PORTION ======================-->
@@ -36,7 +37,5 @@
     <p><?php echo $name; ?></p>
     <p><?php echo $shipping; ?></p>
     <p><?php echo $credit; ?></p>
-    <p><?php echo $creditNumber; ?></p>
-    <p><?php echo $creditNumberRepeat; ?></p>
 </body>
 </html>

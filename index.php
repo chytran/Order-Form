@@ -22,6 +22,7 @@
 
                 <!-- Error displays -->
                 <?php
+
                     if (isset($_GET["error"])) {
                         if ($_GET["error"] == "invalidPrice") {
                             echo "<p class='error'>Must Enter a valid price.</p>";
@@ -101,7 +102,7 @@
 
                 <hr class="divider">
 
-                <input class="button" type="submit">
+                <input class="button" name="submit" type="submit">
             </form>
         </div>
     </section>

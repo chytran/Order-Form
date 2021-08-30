@@ -12,14 +12,7 @@ function noMatchCredit($creditNumber, $creditNumberRepeat) {
 }
 
 function wrongPrice($price) {
-    $result;
-    if (!is_numeric($price)) {
-        $result = false;
-    }
-    else {
-        $result = true;
-    }
-    return $result;
+    return ctype_digit($price) && (int) $price > 0;
 }
 
 ?>
