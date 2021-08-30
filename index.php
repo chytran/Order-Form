@@ -15,7 +15,8 @@
 </head>
 <body>
     <section class="main__container">
-        <div class="container bg">
+        <img src="img/background.jpg" alt="" class="bg__cover">
+        <div class="container">
             <?php
                 if (isset($_GET["error"])) {
                     if ($_GET["error"] == "invalidPrice") {

@@ -19,6 +19,24 @@ section {
       justify-self: center;
 }
 
+.container {
+  height: 100vh;
+  width: 100%;
+  z-index: 99;
+  position: relative;
+}
+
+.bg__cover {
+  width: 100%;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 .form {
   width: 100%;
   height: 80vh;
@@ -35,6 +53,7 @@ section {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  z-index: 100;
 }
 
 .container__organizer {
