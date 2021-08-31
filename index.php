@@ -69,7 +69,7 @@
                     <h2 class="credit__name">Credit Card:</h2>
                     <fieldset id="credit1">
                         <div class="radio__container">
-                            <input type="radio" value="Visa" name="credit" id="visa" class="credit__option">
+                            <input type="radio" checked="checked" value="Visa" name="credit" id="visa" class="credit__option">
                             <label for="visa" class="labels"> Visa</label>
                         </div>
                         

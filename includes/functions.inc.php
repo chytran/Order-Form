@@ -12,7 +12,14 @@ function noMatchCredit($creditNumber, $creditNumberRepeat) {
 }
 
 function wrongPrice($price) {
-    return ctype_digit($price) && (int) $price > 0;
+    $result;
+    if (!preg_match('/^[0-9]*$/',$price)) {
+        $result = false;
+    }
+    else {
+        $result = true;
+    }
+    return $result;
 }
 
 ?>
