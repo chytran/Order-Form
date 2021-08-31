@@ -15,7 +15,7 @@
 </head>
 <body>
     <section class="main__container">
-        <img src="img/background.jpg" alt="" class="bg__cover">
+        <img src="img/display.jpg" alt="" class="bg__cover">
         <div class="container">
             <form method="post" action="display.php" class="form">
                 <h1 class="order__title">Order Form</h1>
@@ -29,6 +29,9 @@
                         }
                         else if ($_GET["error"]  == "noMatchCredit") {
                             echo "<p class='error'>Credit card numbers do not match.</p>";
+                        }
+                        else if ($_GET["error"]  == "letterUsedInCredit") {
+                            echo "<p class='error'>Credit card numbers contain a non number.</p>";
                         }
                     }
                 ?>
@@ -62,10 +65,12 @@
 
                 <div class="shipping__container container__organizer">
                     <h2 class="shipping__name">Shipping Address:</h2>
-                    <input type="text" name="shipping" class="shipping__text">
+                    <textarea name="shipping" id="" cols="24" rows="4" class="shipping__text">
+                        
+                    </textarea>
                 </div>
 
-                <div class="credit__container container__organizer">
+                <div class="credit__container container__organizer" style="margin-top: 0.3rem;">
                     <h2 class="credit__name">Credit Card:</h2>
                     <fieldset id="credit1">
                         <div class="radio__container">

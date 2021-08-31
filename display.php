@@ -1,21 +1,17 @@
 <?php 
-    // $productName = $_POST["name"];
-    // $quantity = $_POST["quantity"];
-    // $price = $_POST["price"];
-    // $name = $_POST["naming"];
-    // $shipping = $_POST["shipping"];
-    // $credit = $_POST["credit"];
-    // $creditNumber = $_POST["creditNumber"];
-    // $creditNumberRepeat = $_POST["repeatCredit"];
-
     $productName = filter_input(INPUT_POST, 'name');
-    $quantity = filter_input(INPUT_POST, 'quantity');
-    $price = '$' . number_format(filter_input(INPUT_POST, 'price', FILTER_VALIDATE_FLOAT), 2, '.', '');
+    $quantity = filter_input(INPUT_POST, 'quantity', FILTER_VALIDATE_INT);
+    $price = filter_input(INPUT_POST, 'price', FILTER_VALIDATE_FLOAT);
     $name = filter_input(INPUT_POST, 'naming');
     $shipping = filter_input(INPUT_POST, 'shipping');
     $credit = filter_input(INPUT_POST, 'credit');
-    $creditNumber = filter_input(INPUT_POST, 'creditNumber');
-    $creditNumberRepeat = filter_input(INPUT_POST, 'repeatCredit');
+    $creditNumber = filter_input(INPUT_POST, 'creditNumber', FILTER_VALIDATE_INT);
+    $creditNumberRepeat = filter_input(INPUT_POST, 'repeatCredit', FILTER_VALIDATE_INT);
+
+    if (!$creditNumber OR !$creditNumberRepeat) {
+        header("location: index.php?error=letterUsedInCredit");
+        exit();
+    }
 
     require_once 'includes/functions.inc.php';
 
@@ -37,51 +33,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Display Document</title>
+
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="css/style.css?v=<?php echo time(); ?>">
+
+     <!--============== poppins font ===============-->
+     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 </head>
 <body>
-    <section class="main__container">
+    <section class="main__container__display">
+        <img src="img/display.jpg" alt="" class="bg__cover">
         <div class="display__container">
-            <div class="mini__container">
-                <h2 class="display__title">Product Name: </h2>
-                <p><?php echo $productName; ?></p>
-            </div>
-
-            <div class="mini__container">
-                <h2 class="display__title">Quantity: </h2>
-                <p><?php echo $quantity; ?></p>
-            </div>
-
-            <div class="mini__container">
-                <h2 class="display__title">Price: </h2>
-                <p>
+            <!-- Displays first message -->
+            <p>
+                <?php echo $productName; ?>, you placed an order with a <?php echo $credit?> for a total of 
+                <b>
                     <?php 
-                    if ($price) {
-                        echo $price;
-                    } 
-                    else {
-                        header("location: index.php?error=invalidPrice");
-                        exit();
-                    }
+                        if ($price) {
+                            $total = number_format($price * $quantity, 2, '.', '');
+                            echo '$' . $total;
+                        } 
+                        else {
+                            header("location: index.php?error=invalidPrice");
+                            exit();
+                        } 
                     ?>
-                </p>
-            </div>
-
+                </b>
+            </p>
+            <!-- Shipping address -->
             <div class="mini__container">
-                <h2 class="display__title">Name: </h2>
-                <p><?php echo $name; ?></p>
+                <p>Your order will be shipped to</p>
+                <span><?php echo $shipping?></span>
             </div>
-
-            <div class="mini__container">
-                <h2 class="display__title">Shipping Address: </h2>
-                <p><?php echo $shipping; ?></p>
-            </div>
-
-            <div class="mini__container">
-                <h2 class="display__title">Credit: </h2>
-                <p><?php echo $credit; ?></p>
-            </div> 
-        </div>
     </section>
 </body>
 </html>

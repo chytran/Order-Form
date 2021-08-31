@@ -43,7 +43,7 @@ section {
 
 .form {
     width: 40%;
-    height: 50vh;
+    height: 60vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -65,7 +65,6 @@ section {
 }
 
 .order__title {
-    margin-left: 20%;
     padding-bottom: 2rem;
 }
 
@@ -101,20 +100,31 @@ section {
 }
 
 .button {
-    margin-left: 20%;
+    
 }
 
 /*========================= DISPLAY ==================================*/
-.display__container {
+.main__container__display {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.display__container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
     flex-direction: column;
+    z-index: 100;
 }
 
 .mini__container {
     display: flex;
     justify-content: center;
-    align-items: center;
-    flex-direction: row;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.mini__container span {
+
 }
