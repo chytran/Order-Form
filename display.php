@@ -10,7 +10,7 @@
 
     $productName = filter_input(INPUT_POST, 'name');
     $quantity = filter_input(INPUT_POST, 'quantity');
-    $price = filter_input(INPUT_POST, 'price', FILTER_VALIDATE_FLOAT);
+    $price = '$' . number_format(filter_input(INPUT_POST, 'price', FILTER_VALIDATE_FLOAT), 2, '.', '');
     $name = filter_input(INPUT_POST, 'naming');
     $shipping = filter_input(INPUT_POST, 'shipping');
     $credit = filter_input(INPUT_POST, 'credit');
@@ -40,36 +40,48 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="display__container">
-        <div class="mini__container">
-            <h2 class="display__title"></h2>
-            <p><?php echo $productName; ?></p>
-        </div>
+    <section class="main__container">
+        <div class="display__container">
+            <div class="mini__container">
+                <h2 class="display__title">Product Name: </h2>
+                <p><?php echo $productName; ?></p>
+            </div>
 
-        <div class="mini__container">
-            <h2 class="display__title"></h2>
-            <p><?php echo $quantity; ?></p>
-        </div>
+            <div class="mini__container">
+                <h2 class="display__title">Quantity: </h2>
+                <p><?php echo $quantity; ?></p>
+            </div>
 
-        <div class="mini__container">
-            <h2 class="display__title"></h2>
-            <p><?php echo $price; ?></p>
-        </div>
+            <div class="mini__container">
+                <h2 class="display__title">Price: </h2>
+                <p>
+                    <?php 
+                    if ($price) {
+                        echo $price;
+                    } 
+                    else {
+                        header("location: index.php?error=invalidPrice");
+                        exit();
+                    }
+                    ?>
+                </p>
+            </div>
 
-        <div class="mini__container">
-            <h2 class="display__title"></h2>
-            <p><?php echo $name; ?></p>
-        </div>
+            <div class="mini__container">
+                <h2 class="display__title">Name: </h2>
+                <p><?php echo $name; ?></p>
+            </div>
 
-        <div class="mini__container">
-            <h2 class="display__title"></h2>
-            <p><?php echo $shipping; ?></p>
-        </div>
+            <div class="mini__container">
+                <h2 class="display__title">Shipping Address: </h2>
+                <p><?php echo $shipping; ?></p>
+            </div>
 
-        <div class="mini__container">
-            <h2 class="display__title"></h2>
-            <p><?php echo $credit; ?></p>
-        </div> 
-    </div>
+            <div class="mini__container">
+                <h2 class="display__title">Credit: </h2>
+                <p><?php echo $credit; ?></p>
+            </div> 
+        </div>
+    </section>
 </body>
 </html>
