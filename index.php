@@ -101,7 +101,7 @@
                 </div>
 
                 <div class="repeat__credit__number__container container__organizer">
-                    <h2 class="repeat__credit__number__name">Credit Card Number:</h2>
+                    <h2 class="repeat__credit__number__name">Repeat Credit Card Number:</h2>
                     <input type="password" class="repeat__credit__number__text" name="repeatCredit">
                 </div>
 
