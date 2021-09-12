@@ -48,7 +48,7 @@
         <div class="display__container">
             <!-- Displays first message -->
             <p>
-                <?php echo $productName; ?>, you placed an order with a <?php echo $credit?> for a total of 
+                <?php echo $name; ?>, you placed an order with a <?php echo $credit?> for a total of 
                 <b>
                     <?php 
                         if ($price) {
